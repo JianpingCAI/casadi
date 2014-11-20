@@ -21,8 +21,6 @@
  *    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  *
  */
- 
-#include <string.h>
 
 
 #include "worhp_interface.hpp"
@@ -32,6 +30,7 @@
 #include "casadi/core/matrix/sparsity_tools.hpp"
 #include "casadi/core/function/mx_function.hpp"
 #include <ctime>
+#include <cstring>
 
 using namespace std;
 
