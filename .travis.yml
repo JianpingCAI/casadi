@@ -32,7 +32,7 @@ before_install:
 - travis_retry testbot/recipes/fetch.sh snopt7.tar.gz && mkdir snopt7 && tar -xvf snopt7.tar.gz -C snopt7
 - travis_retry testbot/recipes/fetch.sh swig.tar.gz && mkdir swig && tar -xvf swig.tar.gz -C swig
 - ls -al /home/travis/build/swig
-- export PATH=/home/travis/build/swig/bin:/home/travis/build/swig/bin/share/swig/2.0.11:$PATH
+- export PATH=/home/travis/build/swig/bin:/home/travis/build/swig/share/swig/2.0.11:$PATH
 - swig -version
 - pushd testbot/restricted/cplex && mkdir cplex && tar -xvf cplex12.4.tar.gz -C cplex && mkdir concert && tar -xvf cplex12.4-concert.tar.gz -C concert && popd
 - pushd testbot/restricted && mkdir -p worhp && cd  worhp && 7za e ../libworhp_debian7_amd64_gcc47_1.7-12970f3.7z -y && popd
