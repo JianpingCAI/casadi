@@ -206,7 +206,6 @@
 {
    False positive suspected by Joel
    Memcheck:Leak
-   match-leak-kinds: definite
    fun:malloc
    fun:_dl_map_object_deps
    fun:dl_open_worker
@@ -217,4 +216,13 @@
    fun:_dlerror_run
    fun:dlopen@@GLIBC_2.2.5
    fun:_ZN6casadi15PluginInterfaceINS_16QpSolverInternalEE10loadPluginERKSs
+}
+
+{
+  CPLEX weirdness
+  Memcheck:Addr8
+  fun:memcpy@@GLIBC_2.14
+  fun:_intel_fast_memcpy.A
+  ...
+  fun:CPXcopystart
 }

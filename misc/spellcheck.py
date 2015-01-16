@@ -27,6 +27,7 @@ hobj = hunspell.HunSpell('/usr/share/hunspell/en_US.dic', '/usr/share/hunspell/e
 import subprocess
 from multiprocessing import Process, Queue, Lock, Pool, Manager
 from itertools import chain
+import os
 
 lt_exclusions = [
   'WHITESPACE_RULE',
@@ -136,7 +137,7 @@ def checkfile(f,lock):
     #    spells+="Spelling error: %s (%s)\n" % (w,str(hobj.suggest(w)))
     prevs = (t,s,e)
     
-  p = subprocess.Popen(['java','-jar','/home/jg/programs/LanguageTool-2.5/languagetool-commandline.jar','-l','en','-d',",".join(lt_exclusions),'-'],stdin = subprocess.PIPE, stdout = subprocess.PIPE)
+  p = subprocess.Popen(['java','-jar',os.environ["languagetool"] + '/' + 'languagetool-commandline.jar' if 'languagetool' in os.environ else '/home/jg/programs/LanguageTool-2.5/languagetool-commandline.jar','-l','en','-d',",".join(lt_exclusions),'-'],stdin = subprocess.PIPE, stdout = subprocess.PIPE)
   out, err = p.communicate(text)
   if len(out.split("\n")[2:-2]) > 0:
     localsuccess = False

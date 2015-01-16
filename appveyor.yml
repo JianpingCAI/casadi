@@ -1,3 +1,10 @@
+environment:
+ matrix: 
+    - TESTMODE: win_vs
+    - TESTMODE: win_msys
+install:
+  - git clone https://github.com/casadi/testbot.git
+  
 build_script:
-- cmake "-GVisual Studio 12 Win64" -H. -B_builds
-- cmake --build _builds --config "Debug"
+- set PATH=%PATH%;C:\MinGW\msys\1.0\bin;C:\MinGW\bin
+- testbot/testmodes/%TESTMODE%.bat

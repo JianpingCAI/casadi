@@ -52,6 +52,8 @@ namespace casadi {
 
   WorhpInterface::WorhpInterface(const Function& nlp) : NlpSolverInternal(nlp) {
 
+    WorhpPreInit(&worhp_o_, &worhp_w_, &worhp_p_, &worhp_c_);
+
     // Monitors
     addOption("monitor",            OT_STRINGVECTOR,  GenericType(),  "Monitor functions",
               "eval_f|eval_g|eval_jac_g|eval_grad_f|eval_h", true);

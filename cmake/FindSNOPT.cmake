@@ -1,5 +1,5 @@
 # libraries
-set(SNOPT_LIBS_LIST snopt7 snopt7_cpp)
+set(SNOPT_LIBS_LIST snopt7 snopt7_cpp sqopt7)
 
 set(SNOPT_LIBRARIES)
 set(SNOPT_HAS_EVERYTHING TRUE)
