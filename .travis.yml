@@ -12,17 +12,25 @@ env:
 matrix:
   include:
     - compiler: gcc
+      os: linux
       env: TESTMODE=full_valgrind
     - compiler: gcc
+      os: linux
       env: TESTMODE=full_remainder
     - compiler: gcc
+      os: linux
       env: TESTMODE=full_slow
     - compiler: gcc
+      os: linux
       env: TESTMODE=docs
     - compiler: clang
+      os: linux
       env: TESTMODE=minimal
     - compiler: gcc
+      os: linux
       env: TESTMODE=quick
+    - os: osx
+      env: TESTMODE=minimal
 before_install:
 - sudo ifconfig
 - pushd ../../ && git clone https://github.com/casadi/testbot.git
@@ -44,7 +52,4 @@ python:
 - 2.7_with_system_site_packages
 script:
 - /home/travis/build/testbot/testmodes/$TESTMODE.sh
-os: 
-- linux
-- osx
 language: cpp
